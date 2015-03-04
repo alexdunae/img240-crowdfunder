@@ -1,0 +1,16 @@
+<%= form_for([@project, @funding_level]) do |f| %>
+
+  <%= f.label :reward_name %>
+  <br>
+  <%= f.text_field :reward_name, required: true %>
+  <br>
+  <br>
+
+  <%= f.label :amount %>
+  <br>
+  <%= f.number_field :amount, required: true %>
+  <br>
+  <br>
+
+  <%= f.submit 'Save!' %>
+<% end %>

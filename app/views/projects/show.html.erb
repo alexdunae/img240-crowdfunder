@@ -1,0 +1,35 @@
+<h1>Current Project: <%= @project.name %></h1>
+
+<%= simple_format(@project.description) %>
+
+<hr>
+
+<h2>Funding Levels <%= link_to 'New', new_project_funding_level_path(@project) %></h2>
+
+<p><%= link_to 'New pledge', new_project_pledge_path(@project) %></p>
+
+<% @project.funding_levels.each do |funding_level| %>
+
+  <h4><%= funding_level.reward_name %> --- <%= funding_level.amount %></h4>
+
+
+
+  <h3>Pledges for <%= funding_level.reward_name %></h3>
+
+  <% funding_level.pledges.each do |pledge| %>
+
+    <h4><%= pledge.name %> --- <%= pledge.amount %></h4>
+    <p>Pledge on <%= pledge.created_at %></p>
+
+  <% end %>
+
+  <hr>
+<% end %>
+
+<hr><hr>
+
+<h2>Make a pledge</h2>
+
+<%= render 'pledges/form' %>
+
+

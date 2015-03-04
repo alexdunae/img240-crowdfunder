@@ -1,0 +1,30 @@
+<%= form_for([@project, @pledge]) do |f| %>
+
+  <%= f.label :name %>
+  <br>
+  <%= f.text_field :name, required: true %>
+  <br>
+  <br>
+
+  <%= f.label :email %>
+  <br>
+  <%= f.text_field :email, required: true %>
+  <br>
+  <br>
+
+
+  <%= f.label :amount, 'Enter a specific amount' %>
+  <br>
+  <%= f.text_field :amount %>
+  <br>
+  <br>
+
+
+  <%= f.label :funding_level_id, 'Or choose a reward' %>
+  <br>
+  <%= f.collection_select :funding_level_id, @project.funding_levels, :id, :reward_name, include_blank: true  %>
+  <br>
+  <br>
+
+  <%= f.submit 'Save!' %>
+<% end %>
